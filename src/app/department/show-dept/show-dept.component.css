@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+  }
+table th{
+    font-size: 1.3em;
+}
+table td{
+  font-size: 16px;
+}
