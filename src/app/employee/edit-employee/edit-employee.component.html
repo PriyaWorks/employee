@@ -29,8 +29,10 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Department ID</span>
             </div>
-            <input required type="text" class="form-control" name="fk_deptId" #fk_deptId="ngModel"
+            <select required class="form-control" name="fk_deptId" #fk_deptId="ngModel"
                 [(ngModel)]="service.formData.fk_deptId">
+                <option *ngFor="let dn of deptList" [ngValue]="dn.deptId">{{dn.deptName}}</option>
+            </select>
         </div>
         <div class="text-left text-danger" *ngIf="fk_deptId.invalid && fk_deptId.touched">
             Please enter Department

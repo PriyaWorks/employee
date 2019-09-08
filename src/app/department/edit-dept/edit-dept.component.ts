@@ -25,7 +25,7 @@ export class EditDeptComponent implements OnInit {
 
   onEditDept(form: NgForm){
     this.service.editDepartment(form.value).subscribe(res => {
-      this.snackBar.open(res.toString(), ' ', {
+      this.snackBar.open(res['message'], ' ', {
         duration: 5000,
         verticalPosition: 'top'
       });

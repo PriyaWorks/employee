@@ -24,7 +24,7 @@
             </div>
             <select required class="form-control" name="fk_deptId" #fk_deptId="ngModel"
                 [(ngModel)]="service.formData.fk_deptId">
-                <option *ngFor="let dn of dropdownList" [value]="dn">{{dn}}</option>
+                <option *ngFor="let dn of deptList" [ngValue]="dn.deptId">{{dn.deptName}}</option>
             </select>
         </div>
         <div class="text-left text-danger" *ngIf="fk_deptId.invalid && fk_deptId.touched">

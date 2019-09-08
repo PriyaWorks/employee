@@ -14,6 +14,7 @@ export class DepartmentService {
   formData : Department;
 
   readonly Url = "http://localhost:3000";
+  finalURL : string;
 
   getDepartmentList() : Observable<Department[]> {
     return this.http.get<Department[]>(this.Url + '/departments');
@@ -27,8 +28,9 @@ export class DepartmentService {
     return this.http.delete(this.Url + '/departments/delete/' + id);
   }
 
-  editDepartment(dep: Department){
-    return this.http.put(this.Url + '/departments/edit/', dep);
+  editDepartment(dept: Department){
+    this.finalURL = this.Url + '/departments/edit/' + dept.deptId;
+    return this.http.put(this.finalURL, dept);
   }
   //1. after adding department page should refresh and dept name should be added
   private _listners = new Subject<any>();

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef, MatSnackBarModule} from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatDialogRef, MatSort, MatTableDataSource} from '@angular/material';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';  
 import { DepartmentService } from 'src/app/services/department.service';
+
 
 @Component({
   selector: 'app-add-employee',
@@ -17,8 +18,16 @@ export class AddEmployeeComponent implements OnInit {
               private snackBar: MatSnackBar,
               private deptService: DepartmentService) { }
 
+  deptList = [];
+    //for sorting
+  @ViewChild(MatSort, null) sort: MatSort;
   public dropdownList: Array<string> = [];
   ngOnInit() {
+    this.deptService.getDepartmentList().subscribe(data => {
+      this.deptList = data;
+      console.log(data);
+      // this.deptList.sort = this.sort;
+    });
     this.resetForm();
     //this.dropdownRefresh();
   }

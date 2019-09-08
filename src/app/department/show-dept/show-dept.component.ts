@@ -61,7 +61,7 @@ export class ShowDeptComponent implements OnInit {
     if(confirm('Are you sure you want to delete?')) {
       this.service.deleteDepartment(id).subscribe(res => {
         this.refreshDeeptList();
-        this.snackBar.open(res.toString(), '', {
+        this.snackBar.open(res['message'], '', {
           duration: 5000,
           verticalPosition: 'top'
         });

@@ -38,7 +38,7 @@ export class AddDeptComponent implements OnInit {
     this.service.addDepartment(form.value).subscribe(res => {
       this.resetForm(form);
       //Snack bar to display confirmation for dept added
-      this.snackBar.open(res.toString(), '', {
+      this.snackBar.open(res['message'], '', {
         duration: 5000,
         verticalPosition: 'top'
       });
